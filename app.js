@@ -51,7 +51,7 @@ app.get('/', async (req, res) => {
         title: "Quản lý Sách",
         hoten: "Hồ Đắc Khánh", 
         mssv: "23IT123",      
-        vat: "7%"             
+        vat: "4%"  // Đã sửa lại hiển thị VAT 4%
     });
 });
 
@@ -75,8 +75,8 @@ app.post('/books', async (req, res) => {
             });
         }
 
-        const lastDigit = parseInt(mssv_suffix.slice(-1)); 
-        const vatRate = lastDigit + 4; 
+        // Đã sửa lại logic tính VAT cố định là 4%
+        const vatRate = 4; 
         const calculatedPriceWithVAT = price + (price * vatRate / 100);
 
         req.body.priceWithVAT = calculatedPriceWithVAT;
